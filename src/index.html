@@ -8,18 +8,15 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --navy-blue: #0A2463;
-            --navy-blue-light: #1E47A0;
-            --white: #FFFFFF;
+            --navy-blue: #19274d;
+            --navy-blue-light: #4669b4;
             --light-gray: #f8f9fa;
             --accent-red: #ff3829;
-            --accent-yellow: #FCBF49;
             --text-color: #333;
             --text-light: #555;
-            --primary-font: 'Poppins', sans-serif;
-            --secondary-font: 'Montserrat', sans-serif;
-            --box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-            --border-radius: 8px;
+            --primary-font: 'Montserrat', sans-serif;
+            --font-s: 0.9rem;
+
         }
 
         /* YOUR EXISTING CSS - REMAINS LARGELY THE SAME */
@@ -30,10 +27,10 @@
         }
 
         body {
-            font-family: 'Poppins', sans-serif;
-            /* */
+            font-family: var(--primary-font);
+
             line-height: 1.6;
-            color: #333;
+            color: var(--text-color);
             /* overflow-x: hidden;
                Lenis handles scrolling, so direct overflow manipulation might change.
                Let Lenis manage body/html scroll.
@@ -42,8 +39,7 @@
 
         /* Header */
         header {
-            background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
-            /* */
+            background: linear-gradient(135deg, var(--navy-blue) 0%, var(--navy-blue-light) 100%);
             color: white;
             padding: 1rem 0;
             position: fixed;
@@ -51,7 +47,7 @@
             top: 0;
             z-index: 1000;
             box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
-            /* */
+
         }
 
         .container {
@@ -62,133 +58,97 @@
 
         .header-content {
             display: flex;
-            /* */
             justify-content: space-between;
-            /* */
             align-items: center;
-            /* */
+
         }
 
         .logo {
             display: flex;
-            /* */
             align-items: center;
-            /* */
             gap: 0.5rem;
-            /* */
+
         }
 
         .bridge-icon {
             width: 40px;
-            /* */
             height: 40px;
-            /* */
             background: linear-gradient(45deg, var(--accent-red), #ff7474);
-            /* */
             border-radius: 50%;
-            /* */
             display: flex;
-            /* */
             align-items: center;
-            /* */
             justify-content: center;
-            /* */
             position: relative;
-            /* */
+
         }
 
         .bridge-icon::before {
             content: "🌉";
-            /* */
-            font-size: 20px;
-            /* */
+            font-size: var(--font-s);
             transform: rotate(-15deg);
-            /* */
+
         }
 
         .logo-text h1 {
             font-size: 1.5rem;
-            /* */
             font-weight: 700;
-            /* */
             margin-bottom: -5px;
-            /* */
+
         }
 
         .tagline {
             font-size: 0.8rem;
-            /* */
             opacity: 0.9;
-            /* */
             font-weight: 300;
-            /* */
+
         }
 
         nav ul {
             display: flex;
-            /* */
             list-style: none;
-            /* */
             gap: 2rem;
-            /* */
+
         }
 
         nav a {
             color: white;
-            /* */
             text-decoration: none;
-            /* */
             font-weight: 500;
-            /* */
             transition: all 0.3s ease;
-            /* */
             position: relative;
-            /* */
+
         }
 
         nav a:hover {
-            color: #fbbf24;
-            /* */
+            color: var(--accent-red);
+
         }
 
         nav a::after {
             content: '';
-            /* */
             position: absolute;
-            /* */
             bottom: -5px;
-            /* */
             left: 0;
-            /* */
             width: 0;
-            /* */
             height: 2px;
-            /* */
-            background: #fbbf24;
-            /* */
+            background: var(--accent-red);
             transition: width 0.3s ease;
-            /* */
+
         }
 
         nav a:hover::after {
             width: 100%;
-            /* */
+
         }
 
         /* Hero Section */
         .hero {
-            background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 50%, #1e40af 100%);
-            /* */
+            background: linear-gradient(135deg, var(--navy-blue) 0%, var(--navy-blue-light) 50%, #405bb2 100%);
             color: white;
-            /* */
             padding: 120px 0 80px;
-            /* */
             text-align: center;
-            /* */
             position: relative;
-            /* */
             overflow: hidden;
-            /* */
             min-height: 100vh;
             /* Ensure it has enough height for 3D element */
             display: flex;
@@ -210,71 +170,54 @@
         .hero::before {
             /* Optional wave background, may conflict with 3D */
             content: '';
-            /* */
             position: absolute;
-            /* */
             top: 0;
-            /* */
             left: 0;
-            /* */
             right: 0;
-            /* */
             bottom: 0;
-            /* */
             background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 300"><path d="M0,100 C150,200 350,0 500,100 C650,200 850,0 1000,100 L1000,300 L0,300 Z" fill="rgba(255,255,255,0.05)"/></svg>');
-            /* */
             background-size: cover;
-            /* */
             animation: wave 20s ease-in-out infinite;
-            /* */
             z-index: 0;
             /* Ensure it's behind the canvas if both are used */
         }
 
         @keyframes wave {
 
-            /* */
+
             0%,
             100% {
                 transform: translateX(0);
             }
 
-            /* */
+
             50% {
                 transform: translateX(-50px);
             }
 
-            /* */
         }
 
         .hero-content {
             position: relative;
-            /* */
             z-index: 2;
             /* Above canvas and ::before */
-            /* */
+
         }
 
         .hero h1 {
             font-size: 3.5rem;
-            /* */
             font-weight: 700;
-            /* */
             margin-bottom: 1rem;
-            /* */
             animation: fadeInUp 1s ease-out;
-            /* */
+
         }
 
         .hero p {
-            font-size: 1.3rem;
-            /* */
+            font-size: var(--font-s);
             margin-bottom: 2rem;
-            /* */
             opacity: 0.95;
-            /* */
             animation: fadeInUp 1s ease-out 0.2s both;
-            /* */
+
         }
 
 
@@ -285,7 +228,7 @@
             padding: 1.2rem 3rem;
             border: none;
             border-radius: 50px;
-            font-size: 1.1rem;
+            font-size: var(--font-s);
             font-weight: 600;
             text-decoration: none;
             text-transform: uppercase;
@@ -321,480 +264,367 @@
 
         @keyframes fadeInUp {
 
-            /* */
+
             from {
-                /* */
+
                 opacity: 0;
-                /* */
                 transform: translateY(30px);
-                /* */
+
             }
 
             to {
-                /* */
+
                 opacity: 1;
-                /* */
                 transform: translateY(0);
-                /* */
+
             }
         }
 
         /* How We Work Section */
         .how-we-work {
             padding: 80px 0;
-            /* */
             background: #f8fafc;
-            /* */
+
         }
 
         .section-title {
             text-align: center;
-            /* */
-            font-size: 2.5rem;
-            /* */
+            font-size: 2rem;
             font-weight: 700;
-            /* */
-            color: #1e3a8a;
-            /* */
+            color: var(--navy-blue);
             margin-bottom: 3rem;
-            /* */
+
         }
 
         .steps {
             display: flex;
-            /* */
             justify-content: space-between;
-            /* */
             align-items: flex-start;
-            /* */
             gap: 2rem;
-            /* */
+
         }
 
         .step {
             flex: 1;
-            /* */
             text-align: center;
-            /* */
             position: relative;
-            /* */
+
         }
 
         .step-icon {
             width: 80px;
-            /* */
             height: 80px;
-            /* */
-            background: linear-gradient(135deg, #3b82f6, #1e40af);
-            /* */
+            background: linear-gradient(135deg, var(--navy-blue-light), var(--navy-blue));
             border-radius: 50%;
-            /* */
             margin: 0 auto 1.5rem;
-            /* */
             display: flex;
-            /* */
             align-items: center;
-            /* */
             justify-content: center;
-            /* */
             font-size: 2rem;
-            /* */
             color: white;
-            /* */
             box-shadow: 0 10px 30px rgba(59, 130, 246, 0.3);
-            /* */
             transition: transform 0.3s ease;
-            /* */
+
         }
 
         .step:hover .step-icon {
             transform: translateY(-5px);
-            /* */
+
         }
 
         .step h3 {
-            font-size: 1.3rem;
-            /* */
+            font-size: 1.2rem;
             font-weight: 600;
-            /* */
-            color: #1e3a8a;
-            /* */
+            color: var(--navy-blue);
             margin-bottom: 1rem;
-            /* */
+
         }
 
         .step p {
             color: #64748b;
-            /* */
             line-height: 1.6;
-            /* */
+
         }
 
         .step::after {
-            /* */
+
             content: '→';
-            /* */
             position: absolute;
-            /* */
             top: 40px;
-            /* */
             right: -30px;
-            /* */
             font-size: 2rem;
-            /* */
             color: var(--accent-red);
-            /* */
             font-weight: bold;
-            /* */
+
         }
 
         .step:last-child::after {
             display: none;
-            /* */
+
         }
 
         /* Success Stories */
         .success-stories {
             padding: 80px 0;
-            /* */
             background: white;
-            /* */
+
         }
 
         .testimonials {
             display: flex;
-            /* */
             gap: 2rem;
-            /* */
             overflow-x: auto;
-            /* */
             padding-bottom: 1rem;
-            /* */
         }
 
         .testimonial {
             min-width: 350px;
-            /* */
             background: #f8fafc;
-            /* */
             padding: 2rem;
-            /* */
             border-radius: 20px;
-            /* */
             text-align: center;
-            /* */
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            /* */
             transition: transform 0.3s ease;
-            /* */
         }
 
         .testimonial:hover {
             transform: translateY(-5px);
-            /* */
+
         }
 
         .client-photo {
             width: 80px;
-            /* */
             height: 80px;
-            /* */
             border-radius: 50%;
-            /* */
             background: linear-gradient(135deg, var(--accent-red), #ff6b6b);
-            /* */
             margin: 0 auto 1.5rem;
-            /* */
             display: flex;
-            /* */
             align-items: center;
-            /* */
             justify-content: center;
-            /* */
             font-size: 2rem;
-            /* */
             color: white;
-            /* */
             font-weight: bold;
-            /* */
+
         }
 
         .testimonial blockquote {
             font-style: italic;
-            /* */
             color: #475569;
-            /* */
             margin-bottom: 1rem;
-            /* */
             line-height: 1.6;
-            /* */
         }
 
         .client-name {
             font-weight: 600;
-            /* */
-            color: #1e3a8a;
-            /* */
+            color: var(--navy-blue);
+
         }
 
         /* Services */
         .services {
             padding: 80px 0;
-            /* */
             background: #f8fafc;
-            /* */
+
         }
 
         .services-grid {
             display: grid;
-            /* */
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            /* */
             gap: 2rem;
-            /* */
             margin-top: 3rem;
-            /* */
+
         }
 
         .service-card {
             background: white;
-            /* */
             padding: 2rem;
-            /* */
             border-radius: 20px;
-            /* */
             text-align: center;
-            /* */
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            /* */
             transition: all 0.3s ease;
-            /* */
             cursor: pointer;
-            /* */
+
         }
 
         .service-card:hover {
             transform: translateY(-10px);
-            /* */
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
-            /* */
+
         }
 
         .service-icon {
             width: 70px;
-            /* */
             height: 70px;
-            /* */
-            background: linear-gradient(135deg, #3b82f6, #1e40af);
-            /* */
+            background: linear-gradient(135deg, var(--navy-blue-light), var(--navy-blue));
             border-radius: 15px;
-            /* */
             margin: 0 auto 1.5rem;
-            /* */
             display: flex;
-            /* */
             align-items: center;
-            /* */
             justify-content: center;
-            /* */
-            font-size: 1.8rem;
-            /* */
+            font-size: var(--font-s);
             color: white;
-            /* */
+
         }
 
         .service-card h3 {
             font-size: 1.2rem;
-            /* */
             font-weight: 600;
-            /* */
-            color: #1e3a8a;
-            /* */
+            color: var(--navy-blue);
             margin-bottom: 1rem;
-            /* */
+
         }
 
         .service-card p {
             color: #64748b;
-            /* */
             line-height: 1.6;
-            /* */
+
         }
 
         /* Why Choose Us */
         .why-choose-us {
             padding: 80px 0;
-            /* */
-            background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
-            /* */
+            background: linear-gradient(135deg, var(--navy-blue) 0%, var(--navy-blue-light) 100%);
             color: white;
-            /* */
+
         }
 
         .features {
             display: grid;
-            /* */
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            /* */
             gap: 3rem;
-            /* */
             margin-top: 3rem;
-            /* */
+
         }
 
         .feature {
             display: flex;
-            /* */
             align-items: flex-start;
-            /* */
             gap: 1rem;
-            /* */
+
         }
 
         .feature-icon {
             width: 50px;
-            /* */
             height: 50px;
-            /* */
             background: linear-gradient(45deg, #ffffff, #e1f1ff);
-            /* */
             border-radius: 50%;
-            /* */
             display: flex;
-            /* */
             align-items: center;
-            /* */
             justify-content: center;
-            /* */
             font-size: 1.5rem;
-            /* */
             flex-shrink: 0;
-            /* */
+
         }
 
         .feature-content h3 {
             font-size: 1.2rem;
-            /* */
             font-weight: 600;
-            /* */
             margin-bottom: 0.5rem;
-            /* */
+
         }
 
         .feature-content p {
             opacity: 0.9;
-            /* */
             line-height: 1.6;
-            /* */
+
         }
 
         /* Footer */
         footer {
-            background: #0f172a;
-            /* */
+            background: #1b2232;
+
             color: white;
-            /* */
             padding: 60px 0 30px;
-            /* */
+
         }
 
         .footer-content {
             display: grid;
-            /* */
+
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            /* */
+
             gap: 3rem;
-            /* */
+
             margin-bottom: 3rem;
-            /* */
+
         }
 
         .footer-section h3 {
-            font-size: 1.3rem;
-            /* */
+            font-size: 1.2rem;
+
             font-weight: 600;
-            /* */
+
             margin-bottom: 1.5rem;
-            /* */
-            color: #b8d2ff;
-            /* */
+
+            color: var(--navy-blue-light);
+
         }
 
         .footer-section p,
         .footer-section li {
             opacity: 0.8;
-            /* */
+
             line-height: 1.6;
-            /* */
+
             margin-bottom: 0.5rem;
-            /* */
+
         }
 
         .footer-section ul {
             list-style: none;
-            /* */
+
         }
 
         .footer-section a {
             color: white;
-            /* */
+
             text-decoration: none;
-            /* */
+
             transition: color 0.3s ease;
-            /* */
+
         }
 
         .footer-section a:hover {
             color: var(--accent-red);
-            /* */
+
         }
 
         .social-links {
             display: flex;
-            /* */
+
             gap: 1rem;
-            /* */
+
             margin-top: 1rem;
-            /* */
+
         }
 
         .social-link {
             width: 40px;
-            /* */
             height: 40px;
-            /* */
             background: #374151;
-            /* */
             border-radius: 50%;
-            /* */
             display: flex;
-            /* */
             align-items: center;
-            /* */
             justify-content: center;
-            /* */
             text-decoration: none;
-            /* */
             color: white;
-            /* */
             transition: all 0.3s ease;
-            /* */
+
         }
 
         .social-link:hover {
             background: var(--accent-red);
-            /* */
             transform: translateY(-3px);
-            /* */
+
         }
 
         .footer-bottom {
             border-top: 1px solid #374151;
-            /* */
+
             padding-top: 2rem;
-            /* */
+
             text-align: center;
-            /* */
+
             opacity: 0.7;
             display: flex;
             justify-content: space-around;
@@ -804,56 +634,79 @@
         @media (width < 768px) {
             .header-content {
                 flex-direction: column;
-                /* */
+
                 gap: 1rem;
-                /* */
+
             }
 
             nav ul {
                 flex-wrap: wrap;
-                /* */
+
                 justify-content: center;
-                /* */
+
                 gap: 1rem;
-                /* */
+
             }
 
             .hero {
                 padding: 140px 0 60px;
-                /* */
+
             }
 
             .hero h1 {
                 font-size: 2.5rem;
-                /* */
+
             }
 
             .steps {
                 flex-direction: column;
-                /* */
+
                 gap: 3rem;
-                /* */
+
             }
 
             .step::after {
                 display: none;
-                /* */
+
             }
 
             .testimonials {
                 flex-direction: column;
-                /* */
+
             }
 
             .testimonial {
                 min-width: auto;
-                /* */
+
+            }
+
+            .contact-form-container {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .contact-form,
+            .contact-info {
+                padding: 2rem;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .container {
+                padding: 0 1rem;
             }
         }
-                /* Contact Form Section */
+
+        /* Contact Form Section */
         .contact-form-section {
             padding: 80px 0;
-            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+            background: linear-gradient(135deg, #fff 0%, #e2e8f0 100%);
             position: relative;
             overflow: hidden;
         }
@@ -871,8 +724,15 @@
         }
 
         @keyframes wave {
-            0%, 100% { transform: translateX(0); }
-            50% { transform: translateX(-30px); }
+
+            0%,
+            100% {
+                transform: translateX(0);
+            }
+
+            50% {
+                transform: translateX(-30px);
+            }
         }
 
         .container {
@@ -885,9 +745,9 @@
 
         .section-title {
             text-align: center;
-            font-size: 2.5rem;
+            font-size: 2rem;
             font-weight: 700;
-            color: #1e3a8a;
+            color: var(--navy-blue);
             margin-bottom: 1rem;
         }
 
@@ -917,9 +777,9 @@
         }
 
         .contact-info h3 {
-            font-size: 1.8rem;
+            font-size: 1.5rem;
             font-weight: 700;
-            color: #1e3a8a;
+            color: var(--navy-blue);
             margin-bottom: 1.5rem;
             display: flex;
             align-items: center;
@@ -945,19 +805,19 @@
         .contact-icon {
             width: 50px;
             height: 50px;
-            background: linear-gradient(135deg, #3b82f6, #1e40af);
+            background: linear-gradient(135deg, var(--navy-blue-light), var(--navy-blue));
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.2rem;
+            font-size: var(--font-s);
             color: white;
             flex-shrink: 0;
         }
 
         .contact-details h4 {
             font-weight: 600;
-            color: #1e3a8a;
+            color: var(--navy-blue);
             margin-bottom: 0.2rem;
         }
 
@@ -983,7 +843,7 @@
             left: 0;
             right: 0;
             height: 4px;
-            background: linear-gradient(90deg, #3b82f6, #1e40af, var(--accent-red));
+            background: linear-gradient(90deg, var(--navy-blue-light), var(--navy-blue), var(--accent-red));
         }
 
         .form-group {
@@ -1000,9 +860,9 @@
         .form-group label {
             display: block;
             font-weight: 600;
-            color: #1e3a8a;
+            color: var(--navy-blue);
             margin-bottom: 0.5rem;
-            font-size: 0.95rem;
+            font-size: var(--font-s);
         }
 
         .form-group input,
@@ -1012,7 +872,7 @@
             padding: 1rem 1.2rem;
             border: 2px solid #e2e8f0;
             border-radius: 12px;
-            font-size: 1rem;
+            font-size: var(--font-s);
             font-family: inherit;
             transition: all 0.3s ease;
             background: #f8fafc;
@@ -1022,7 +882,7 @@
         .form-group select:focus,
         .form-group textarea:focus {
             outline: none;
-            border-color: #3b82f6;
+            border-color: var(--navy-blue-light);
             background: white;
             box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
             transform: translateY(-2px);
@@ -1058,13 +918,13 @@
             background: transparent;
         }
 
-        .form-group.floating input:focus + label,
-        .form-group.floating input:not(:placeholder-shown) + label,
-        .form-group.floating textarea:focus + label,
-        .form-group.floating textarea:not(:placeholder-shown) + label {
+        .form-group.floating input:focus+label,
+        .form-group.floating input:not(:placeholder-shown)+label,
+        .form-group.floating textarea:focus+label,
+        .form-group.floating textarea:not(:placeholder-shown)+label {
             top: 0.3rem;
             font-size: 0.8rem;
-            color: #3b82f6;
+            color: var(--navy-blue-light);
             font-weight: 600;
         }
 
@@ -1075,7 +935,7 @@
             padding: 1.2rem 2rem;
             border: none;
             border-radius: 12px;
-            font-size: 1.1rem;
+            font-size: 1.2rem;
             font-weight: 600;
             text-transform: uppercase;
             letter-spacing: 1px;
@@ -1132,30 +992,7 @@
             border: 1px solid #f87171;
         }
 
-        /* Responsive Design */
-        @media (width < 768px) {
-            .contact-form-container {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-            }
 
-            .contact-form,
-            .contact-info {
-                padding: 2rem;
-            }
-
-            .form-row {
-                grid-template-columns: 1fr;
-            }
-
-            .section-title {
-                font-size: 2rem;
-            }
-
-            .container {
-                padding: 0 1rem;
-            }
-        }
 
         /* Animation for form elements */
         .contact-form,
@@ -1195,7 +1032,6 @@
                         <li><a href="#servicios">Servicios</a></li>
                         <li><a href="#nosotros">¿Por qué nosotros?</a></li>
                         <li><a href="#testimonios">Testimonios</a></li>
-
                         <li><a href="#contacto">Contacto</a></li>
                     </ul>
                 </nav>
@@ -1219,32 +1055,32 @@
             <h2 class="section-title">Nuestros Servicios</h2>
             <div class="services-grid">
                 <div class="service-card">
-                    <div class="service-icon">✈️</div>
-                    <h3>Visa de Turismo</h3>
+                    <div class="service-icon">icon</div>
+                    <h3>Derecho Migratorio de Estados Unidos</h3>
                     <p>Asesoría completa para obtener tu visa de turista B1/B2 y visitar Estados Unidos.</p>
                 </div>
                 <div class="service-card">
-                    <div class="service-icon">🎓</div>
+                    <div class="service-icon">icon</div>
                     <h3>Visa de Estudio</h3>
                     <p>Te ayudamos con visas F-1 y M-1 para estudiar en universidades americanas.</p>
                 </div>
                 <div class="service-card">
-                    <div class="service-icon">🔄</div>
+                    <div class="service-icon">icon</div>
                     <h3>Renovación de Visa</h3>
                     <p>Renovación y extensión de visas existentes con asesoría personalizada.</p>
                 </div>
                 <div class="service-card">
-                    <div class="service-icon">👨‍👩‍👧‍👦</div>
+                    <div class="service-icon">icon</div>
                     <h3>Reunificación Familiar</h3>
                     <p>Procesos de petición familiar para reunir a tu familia en Estados Unidos.</p>
                 </div>
                 <div class="service-card">
-                    <div class="service-icon">💼</div>
+                    <div class="service-icon">icon</div>
                     <h3>Visa de Trabajo</h3>
                     <p>Asesoría en visas H-1B, L-1 y otras categorías laborales.</p>
                 </div>
                 <div class="service-card">
-                    <div class="service-icon">🏡</div>
+                    <div class="service-icon">icon</div>
                     <h3>Residencia Permanente</h3>
                     <p>Te guiamos hacia la obtención de tu Green Card por diferentes vías.</p>
                 </div>
@@ -1258,7 +1094,7 @@
             <h2 class="section-title" style="color: white;">¿Por Qué Elegirnos?</h2>
             <div class="features">
                 <div class="feature">
-                    <div class="feature-icon">⚖️</div>
+                    <div class="feature-icon">icon</div>
                     <div class="feature-content">
                         <h3>Experiencia Legal Comprobada</h3>
                         <p>Más de 10 años de experiencia en derecho migratorio con casos exitosos respaldados por
@@ -1266,7 +1102,7 @@
                     </div>
                 </div>
                 <div class="feature">
-                    <div class="feature-icon">🤝</div>
+                    <div class="feature-icon">icon</div>
                     <div class="feature-content">
                         <h3>Conexión Colombia-Estados Unidos</h3>
                         <p>Entendemos las necesidades específicas de los colombianos y conocemos ambos sistemas legales.
@@ -1274,7 +1110,7 @@
                     </div>
                 </div>
                 <div class="feature">
-                    <div class="feature-icon">💯</div>
+                    <div class="feature-icon">icon</div>
                     <div class="feature-content">
                         <h3>Confianza y Transparencia</h3>
                         <p>Comunicación clara, procesos transparentes y compromiso real con el éxito de tu caso
@@ -1282,7 +1118,7 @@
                     </div>
                 </div>
                 <div class="feature">
-                    <div class="feature-icon">📞</div>
+                    <div class="feature-icon">icon</div>
                     <div class="feature-content">
                         <h3>Atención Personalizada</h3>
                         <p>Cada caso es único. Te brindamos atención personalizada y seguimiento constante durante todo
@@ -1298,19 +1134,19 @@
             <h2 class="section-title">¿Cómo Trabajamos?</h2>
             <div class="steps">
                 <div class="step">
-                    <div class="step-icon">📋</div>
+                    <div class="step-icon">icon</div>
                     <h3>Evaluación</h3>
                     <p>Analizamos tu caso de manera integral y determinamos las mejores opciones migratorias para tu
                         situación específica.</p>
                 </div>
                 <div class="step">
-                    <div class="step-icon">📄</div>
+                    <div class="step-icon">icon</div>
                     <h3>Documentos</h3>
                     <p>Te acompañamos en la preparación y revisión de toda la documentación necesaria con precisión
                         legal.</p>
                 </div>
                 <div class="step">
-                    <div class="step-icon">🤝</div>
+                    <div class="step-icon">icon</div>
                     <h3>Entrevista y Seguimiento</h3>
                     <p>Te preparamos para entrevistas y mantenemos seguimiento constante hasta lograr tu objetivo
                         migratorio.</p>
@@ -1321,7 +1157,7 @@
 
     <section class="success-stories" id="testimonios">
         <div class="container">
-            <h2 class="section-title">Historias de Éxito</h2>
+            <h2 class="section-title">Historias de Éxito (opcional)</h2>
             <div class="testimonials">
                 <div class="testimonial">
                     <div class="client-photo">MC</div>
@@ -1345,18 +1181,19 @@
         </div>
     </section>
 
-        <section class="contact-form-section" id="contacto-form">
+    <section class="contact-form-section" id="contacto-form">
         <div class="container">
             <h2 class="section-title">¡Comienza tu proceso migratorio hoy!</h2>
-            <p class="section-subtitle">Completa el formulario y recibe una consulta gratuita personalizada para tu caso</p>
-            
+            <p class="section-subtitle">Completa el formulario y recibe una consulta gratuita personalizada para tu caso
+            </p>
+
             <div class="contact-form-container">
                 <!-- Contact Information -->
                 <div class="contact-info">
                     <h3>💬 Información de Contacto</h3>
-                    
+
                     <div class="contact-item">
-                        <div class="contact-icon">📍</div>
+                        <div class="contact-icon">icon</div>
                         <div class="contact-details">
                             <h4>Ubicación</h4>
                             <p>Bogotá, Colombia<br>Oficina principal en Zona Rosa</p>
@@ -1364,15 +1201,15 @@
                     </div>
 
                     <div class="contact-item">
-                        <div class="contact-icon">📞</div>
+                        <div class="contact-icon">icon</div>
                         <div class="contact-details">
                             <h4>Teléfono</h4>
-                            <p>+57 1 234 5678<br>WhatsApp disponible</p>
+                            <p>+57 300 7056298<br>WhatsApp disponible</p>
                         </div>
                     </div>
 
                     <div class="contact-item">
-                        <div class="contact-icon">✉️</div>
+                        <div class="contact-icon">icon</div>
                         <div class="contact-details">
                             <h4>Email</h4>
                             <p>info@legalnorthbridge.com<br>Respuesta en 24 horas</p>
@@ -1380,10 +1217,10 @@
                     </div>
 
                     <div class="contact-item">
-                        <div class="contact-icon">🕒</div>
+                        <div class="contact-icon">icon</div>
                         <div class="contact-details">
                             <h4>Horarios</h4>
-                            <p>Lun - Vie: 9:00 AM - 6:00 PM<br>Sab: 9:00 AM - 2:00 PM</p>
+                            <p>Lun - Vie: 9:00 AM - 6:00 PM<br>Sab: 9:00 AM - 1:00 PM</p>
                         </div>
                     </div>
                 </div>
@@ -1453,7 +1290,9 @@
 
                     <div class="form-group">
                         <label for="message">Cuéntanos más sobre tu caso *</label>
-                        <textarea id="message" name="message" placeholder="Describe tu situación, objetivos migratorios, o cualquier pregunta específica que tengas..." required></textarea>
+                        <textarea id="message" name="message"
+                            placeholder="Describe tu situación, objetivos migratorios, o cualquier pregunta específica que tengas..."
+                            required></textarea>
                     </div>
 
                     <div class="form-group">
@@ -1471,64 +1310,6 @@
         </div>
     </section>
 
-    <script>
-        // Form submission handler
-        document.getElementById('contactForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            const formMessage = document.getElementById('formMessage');
-            const submitBtn = document.querySelector('.submit-btn');
-            
-            // Show loading state
-            submitBtn.innerHTML = '⏳ Enviando...';
-            submitBtn.disabled = true;
-            
-            // Simulate form submission (replace with actual form handling)
-            setTimeout(() => {
-                formMessage.className = 'form-message success';
-                formMessage.textContent = '¡Mensaje enviado exitosamente! Te contactaremos en las próximas 24 horas para programar tu consulta gratuita.';
-                formMessage.style.display = 'block';
-                
-                // Reset form
-                this.reset();
-                
-                // Reset button
-                submitBtn.innerHTML = '🚀 Solicitar Consulta Gratuita';
-                submitBtn.disabled = false;
-                
-                // Hide message after 5 seconds
-                setTimeout(() => {
-                    formMessage.style.display = 'none';
-                }, 5000);
-                
-            }, 2000);
-        });
-
-        // Add floating label effect
-        const inputs = document.querySelectorAll('input[type="text"], input[type="email"], input[type="tel"], textarea');
-        inputs.forEach(input => {
-            input.addEventListener('focus', function() {
-                if (!this.value) {
-                    this.setAttribute('placeholder', ' ');
-                }
-            });
-            
-            input.addEventListener('blur', function() {
-                if (!this.value) {
-                    this.removeAttribute('placeholder');
-                }
-            });
-        });
-
-        // Smooth scroll to form when called
-        function scrollToForm() {
-            document.getElementById('contacto-form').scrollIntoView({
-                behavior: 'smooth'
-            });
-        }
-    </script>
-
-
 
 
     <footer id="contacto">
@@ -1536,10 +1317,10 @@
             <div class="footer-content">
                 <div class="footer-section">
                     <h3>Contacto</h3>
-                    <p>📍 Bogotá, Colombia</p>
-                    <p>📞 +57 1 234 5678</p>
-                    <p>✉️ info@legalnorthbridge.com</p>
-                    <p>🕒 Lun - Vie: 9:00 AM - 6:00 PM</p>
+                    <p> Bogotá, Colombia</p>
+                    <p> +57 1 234 5678</p>
+                    <p> info@northlegalbridge.com</p>
+                    <p> Lun - Vie: 9:00 AM - 6:00 PM</p>
                 </div>
                 <div class="footer-section">
                     <h3>Servicios</h3>
@@ -1563,8 +1344,8 @@
                     <h3>Síguenos</h3>
                     <p>Mantente informado sobre cambios en inmigración y consejos legales.</p>
                     <div class="social-links">
-                        <a href="#" class="social-link">📘</a> <a href="#" class="social-link">📷</a> <a href="#"
-                            class="social-link">🐦</a> <a href="#" class="social-link">💼</a>
+                        <a href="#" class="social-link">icon</a> <a href="#" class="social-link">icon</a> <a href="#"
+                            class="social-link">icon</a> <a href="#" class="social-link">icon</a>
                     </div>
                 </div>
             </div>
@@ -1620,39 +1401,98 @@
         window.addEventListener('scroll', function () { // Native scroll still works for event listening
             const header = document.querySelector('header');
             if (window.scrollY > 50) { // Reduced threshold for earlier effect
-                header.style.background = 'linear-gradient(135deg, rgba(30, 58, 138, 0.9) 0%, rgba(59, 130, 246, 0.9) 100%)'; /* */
-                header.style.backdropFilter = 'blur(8px)'; /* */
+                header.style.background = 'linear-gradient(135deg, var(--navy-blue) 0%, var(--navy-blue-light) 100%) 100%)';
+                header.style.backdropFilter = 'blur(8px)';
             } else {
-                header.style.background = 'linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%)'; /* */
-                header.style.backdropFilter = 'none'; /* */
+                header.style.background = 'linear-gradient(135deg, var(--navy-blue) 0%, var(--navy-blue-light) 100%)';
+                header.style.backdropFilter = 'none';
             }
         });
 
         // Animate elements on scroll (Intersection Observer)
         const observerOptions = {
-            threshold: 0.1, /* */
-            rootMargin: '0px 0px -50px 0px' /* */ // Adjusted margin slightly
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'   // Adjusted margin slightly
         };
 
-        const observer = new IntersectionObserver(function (entries, observerInstance) { /* */
+        const observer = new IntersectionObserver(function (entries, observerInstance) {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1'; /* */
-                    entry.target.style.transform = 'translateY(0)'; /* */
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
                     // observerInstance.unobserve(entry.target); // Optional: stop observing after animation
                 }
             });
         }, observerOptions);
 
-        document.querySelectorAll('.service-card, .testimonial, .step, .feature, .contact-form-section').forEach(el => { /* */ // Added .feature
-            el.style.opacity = '0'; /* */
-            el.style.transform = 'translateY(30px)'; /* */
-            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease'; /* */ // specified properties
-            observer.observe(el); /* */
+        document.querySelectorAll('.service-card, .testimonial, .step, .feature, .contact-form-section').forEach(el => {   // Added .feature
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';   // specified properties
+            observer.observe(el);
         });
 
 
     </script>
+    
+    <script>
+        // Form submission handler
+        document.getElementById('contactForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            const formMessage = document.getElementById('formMessage');
+            const submitBtn = document.querySelector('.submit-btn');
+
+            // Show loading state
+            submitBtn.innerHTML = '⏳ Enviando...';
+            submitBtn.disabled = true;
+
+            
+            setTimeout(() => {
+                formMessage.className = 'form-message success';
+                formMessage.textContent = '¡Mensaje enviado exitosamente!';
+                formMessage.style.display = 'block';
+
+                // Reset form
+                this.reset();
+
+                // Reset button
+                submitBtn.innerHTML = '🚀 Solicitar Consulta Gratuita';
+                submitBtn.disabled = false;
+
+                // Hide message after 5 seconds
+                setTimeout(() => {
+                    formMessage.style.display = 'none';
+                }, 5000);
+
+            }, 2000);
+        });
+
+        // Add floating label effect
+        const inputs = document.querySelectorAll('input[type="text"], input[type="email"], input[type="tel"], textarea');
+        inputs.forEach(input => {
+            input.addEventListener('focus', function () {
+                if (!this.value) {
+                    this.setAttribute('placeholder', ' ');
+                }
+            });
+
+            input.addEventListener('blur', function () {
+                if (!this.value) {
+                    this.removeAttribute('placeholder');
+                }
+            });
+        });
+
+        // Smooth scroll to form when called
+        function scrollToForm() {
+            document.getElementById('contacto-form').scrollIntoView({
+                behavior: 'smooth'
+            });
+        }
+    </script>
+
+
 </body>
 
 </html>
